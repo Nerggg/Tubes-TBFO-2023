@@ -1,52 +1,75 @@
-def readpda(pda):
-    i = int(0)
-    j = int(0)
-    k = int(0)
-    n = int(0) # total list of productions (lop)
-    temp = str()
+class LOP: # list of production
+    def __init__(self, currState, inp, pop, moveState, push): 
+        self.currState = currState # currState: state saat itu
+        self.inp = inp # inp: input symbol
+        self.pop = pop # pop: top stack symbol yg di pop
+        self.moveState = moveState # moveState: state tujuan
+        self.push = push # push: stack symbol yang di push
+
+def readpda(pdatxt):
     start = str()
-    inputword = []
-
-    # masukin baris pertama ke dalam inputword
-    while(pda[i] != '\n'):
-        if(pda[i] != ' '):
-            temp = temp + pda[i]
-        else:
-            inputword.append(temp)
-            temp = str()
-        i += 1
-
-    inputword.append(temp)
     temp = str()
-    i += 1
+    currStateTemp = str()
+    inpTemp = str()
+    popTemp = str()
+    moveStateTemp = str()
+    pushTemp = []
+    pda = []
 
-    # masukin starting stack symbol
-    while(pda[i] != '\n'):
-        if(pda[i] != ' '):
-            temp = temp + pda[i]
+    i = int(0)
+
+    while (pdatxt[i] != '\n'): # skip baris pertama 
         i += 1
-
-    start = temp
-    temp = str()
     i += 1
+    while (pdatxt[i] != '\n'): # skip baris kedua
+        i += 1
+    i += 1
+    while (pdatxt[i] != '\n'):
+        temp += pdatxt[i]
+        i += 1
+    i += 1
+    start = temp # mindahin baris ketiga ke starting stack symbol
 
-    idxtemp = int(i)
-    
-    for i in range(idxtemp, len(pda)):
-        if(pda[i] == '\n'):
-            n += 1
-
-    lop = [["" for k in range(3)] for j in range(n)]
-
-    for i in range(idxtemp, len(pda)):
-        if(pda[i] != ' ' and pda[i] != '\n'):
-            temp = temp + pda[i]
-        elif(pda[i] == ' ' or pda[i] == '\n'):
-            lop[j][k] = temp
-            k += 1
+    temp = str()
+    while (i < len(pdatxt)):
+        while (pdatxt[i] != ' '):
+            temp = temp + pdatxt[i]
+            i += 1
+        currStateTemp = temp
+        temp = str()
+        i += 1
+        while (pdatxt[i] != ' '):
+            temp = temp + pdatxt[i]
+            i += 1
+        inpTemp = temp
+        temp = str()
+        i += 1
+        while (pdatxt[i] != ' '):
+            temp = temp + pdatxt[i]
+            i += 1
+        popTemp = temp
+        temp = str()
+        i += 1
+        while (pdatxt[i] != ' '):
+            temp = temp + pdatxt[i]
+            i += 1
+        moveStateTemp = temp
+        temp = str()
+        i += 1
+        while (pdatxt[i-1] != '\n'):
+            while (pdatxt[i] != ',' and pdatxt[i] != '\n'):
+                temp = temp + pdatxt[i]
+                i += 1
+            pushTemp.append(temp)
             temp = str()
-        if (k == 3):
-            j += 1
-            k = 0
+            i += 1
 
-    return (inputword, start, lop)
+        pdatemp = LOP(currStateTemp, inpTemp, popTemp, moveStateTemp, pushTemp)
+        pda.append(pdatemp)
+        currStateTemp = str()
+        inpTemp = str()
+        popTemp = str()
+        moveStateTemp = str()
+        pushTemp = []
+
+    return (start, pda)

@@ -1,12 +1,19 @@
-import readpda as readpda
+import readpda
 
-with open("pda.txt", "r") as rule:
-    pda = rule.read()
+alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','/']
 
-(inputword, start, lop) = readpda.readpda(pda)
+with open("pda.txt", "r") as r:
+    pdatxt = r.read()
 
-print(inputword)
-print()
-print(start)
-print()
-print(lop)
+with open("input.html", "r") as r:
+    html = r.read()
+
+(start, pda) = readpda.readpda(pdatxt)
+
+for i in range (len(pda)):
+    print(f"pda ke {i + 1}")
+    print(pda[i].currState)
+    print(pda[i].inp)
+    print(pda[i].pop)
+    print(pda[i].moveState)
+    print(pda[i].push)
