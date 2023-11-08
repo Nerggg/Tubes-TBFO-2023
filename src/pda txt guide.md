@@ -3,4 +3,6 @@
 1. baris pertama adalah input word symbols
 3. baris kedua adalah stack symbol
 3. baris ketiga adalah starting stack symbol
-4. baris keempat hingga akhir adalah fungsi transisi
+3. baris keempat adalah states
+3. baris kelima adalah starting state
+4. baris keenam hingga akhir adalah fungsi transisi

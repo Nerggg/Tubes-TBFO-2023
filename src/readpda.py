@@ -7,7 +7,8 @@ class LOP: # list of production
         self.push = push # push: stack symbol yang di push
 
 def readpda(pdatxt):
-    start = str()
+    startStack = str()
+    startState = str()
     temp = str()
     currStateTemp = str()
     inpTemp = str()
@@ -28,8 +29,18 @@ def readpda(pdatxt):
         temp += pdatxt[i]
         i += 1
     i += 1
-    start = temp # mindahin baris ketiga ke starting stack symbol
+    startStack = temp # mindahin baris ketiga ke starting stack symbol
+    temp = str()
+    while (pdatxt[i] != '\n'): # skip baris keempat
+        i += 1
+    i += 1
+    while (pdatxt[i] != '\n'):
+        temp += pdatxt[i]
+        i += 1
+    i += 1
+    startState = temp # mindahin baris kelima ke starting state
 
+    # mindahin baris keenam hingga akhir ke fungsi transisi
     temp = str()
     while (i < len(pdatxt)):
         while (pdatxt[i] != ' '):
@@ -72,4 +83,4 @@ def readpda(pdatxt):
         moveStateTemp = str()
         pushTemp = []
 
-    return (start, pda)
+    return (startState, startStack, pda)
