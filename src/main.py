@@ -1,6 +1,6 @@
 import readpda
 
-alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','1','2','3','4','5','6','G','E','T','M','H','O','D']
 
 with open("pda.txt", "r") as r:
     pdatxt = r.read()
@@ -29,17 +29,28 @@ while (i < len(html) - 1 and reject == False):
     print(f"dan current statenya adalah {state}")
     print(f"dan stacknya adalah {stack}")
     print()
-    if (len(html) - i > 8 and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ') and (stack[len(stack)-1] == 'H' or stack[len(stack)-1] == 'T' or stack[len(stack)-1] == 'B' or stack[len(stack)-1] == 'S')):
-#        print("masuk atas")
+    if (len(html) - i > 8 and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ') and (stack[len(stack)-1] == 'H' or stack[len(stack)-1] == 'T' or stack[len(stack)-1] == 'B' or stack[len(stack)-1] == 'S' or stack[len(stack)-1 == 'tr'])):
         i += 1
         continue
-    elif (len(html) - i > 8 and stack[len(stack)-1] == '<' and state == 'W' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
-#        print("masuk bawah")
+    elif (len(html) - i > 8 and stack[len(stack)-1] == 'html' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        i += 1
+        continue
+    elif (len(html) - i > 8 and stack[len(stack)-1] == 'head' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        i += 1
+        continue
+    elif (len(html) - i > 8 and stack[len(stack)-1] == 'link' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        i += 1
+        continue
+    elif (len(html) - i > 8 and stack[len(stack)-1] == '>' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        i += 1
+        continue
+    elif (len(html) - i > 8 and stack[len(stack)-1] == '<' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
         i += 1
         continue
     elif (html[i] != '<' and stack[len(stack)-1] == 'G'):
-#        if (html[i] == '\n'):
-#            print(f"pas newline dia masuk sini")
+        i += 1
+        continue
+    elif (html[i] != '\"' and html[i] != '=' and stack[len(stack)-1] == 'A'):
         i += 1
         continue
     elif (html[i] in alphabet):
