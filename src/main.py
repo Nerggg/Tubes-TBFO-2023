@@ -20,9 +20,16 @@ passed = False
 alpha = False
 temp = str()
 
+# bonus
+line = int(1)
+currLine = str()
+bidx = int()
+lidx = int()
+
 # skip newline yang ada
 while (html[i] == '\n'):
     i += 1
+    line += 1
 
 while (i < len(html) - 1 and reject == False):
     print(f"html nya pas i {i} adalah {html[i]}")
@@ -30,21 +37,39 @@ while (i < len(html) - 1 and reject == False):
     print(f"dan stacknya adalah {stack}")
     print()
     if (len(html) - i > 8 and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ') and (stack[len(stack)-1] == 'H' or stack[len(stack)-1] == 'T' or stack[len(stack)-1] == 'B' or stack[len(stack)-1] == 'S' or stack[len(stack)-1 == 'tr'])):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
         i += 1
         continue
     elif (len(html) - i > 8 and stack[len(stack)-1] == 'html' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
         i += 1
         continue
     elif (len(html) - i > 8 and stack[len(stack)-1] == 'head' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
         i += 1
         continue
     elif (len(html) - i > 8 and stack[len(stack)-1] == 'link' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
         i += 1
         continue
     elif (len(html) - i > 8 and stack[len(stack)-1] == '>' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
         i += 1
         continue
     elif (len(html) - i > 8 and stack[len(stack)-1] == '<' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
         i += 1
         continue
     elif (html[i] != '<' and stack[len(stack)-1] == 'G'):
@@ -83,6 +108,13 @@ while (i < len(html) - 1 and reject == False):
 if (reject == False and len(stack) == 1 and stack[0] == 'Z'):
     print("accept")
 else:
+    while (html[i] != '\n'):
+        i += 1
+    lidx = i
+
+    print(f"line yang salah adalah line ke {line}")
+    print(html[bidx+1:lidx])
+    print("debug")
     print(html[i:])
     print(f"html nya pas {i} adalah {html[i]}")
     print(f"stack nya {stack}")
