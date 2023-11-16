@@ -1,6 +1,6 @@
 import readpda
 
-alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','1','2','3','4','5','6','G','E','T','M','H','O','D']
 
 with open("pda.txt", "r") as r:
     pdatxt = r.read()
@@ -20,26 +20,62 @@ passed = False
 alpha = False
 temp = str()
 
+# bonus
+line = int(1)
+currLine = str()
+bidx = int()
+lidx = int()
+
 # skip newline yang ada
 while (html[i] == '\n'):
     i += 1
+    line += 1
 
 while (i < len(html) - 1 and reject == False):
-    print(f"html nya pas i {i} adalah {html[i]}")
-    print(f"dan current statenya adalah {state}")
-    print(f"dan stacknya adalah {stack}")
-    print()
-    if (len(html) - i > 8 and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ') and (stack[len(stack)-1] == 'H' or stack[len(stack)-1] == 'T' or stack[len(stack)-1] == 'B' or stack[len(stack)-1] == 'S')):
-#        print("masuk atas")
+#    print(f"html nya pas i {i} adalah {html[i]}")
+#    print(f"dan current statenya adalah {state}")
+#    print(f"dan stacknya adalah {stack}")
+#    print()
+    if (len(html) - i > 8 and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ') and (stack[len(stack)-1] == 'H' or stack[len(stack)-1] == 'T' or stack[len(stack)-1] == 'B' or stack[len(stack)-1] == 'S' or stack[len(stack)-1 == 'tr'])):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
         i += 1
         continue
-    elif (len(html) - i > 8 and stack[len(stack)-1] == '<' and state == 'W' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
-#        print("masuk bawah")
+    elif (len(html) - i > 8 and stack[len(stack)-1] == 'html' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
+        i += 1
+        continue
+    elif (len(html) - i > 8 and stack[len(stack)-1] == 'head' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
+        i += 1
+        continue
+    elif (len(html) - i > 8 and stack[len(stack)-1] == 'link' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
+        i += 1
+        continue
+    elif (len(html) - i > 8 and stack[len(stack)-1] == '>' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
+        i += 1
+        continue
+    elif (len(html) - i > 8 and stack[len(stack)-1] == '<' and (html[i] == '\n' or html[i] == '\t' or html[i] == ' ')):
+        if (html[i] == '\n'):
+            bidx = i
+            line += 1
         i += 1
         continue
     elif (html[i] != '<' and stack[len(stack)-1] == 'G'):
-#        if (html[i] == '\n'):
-#            print(f"pas newline dia masuk sini")
+        i += 1
+        continue
+    elif (html[i] != '\"' and html[i] != '=' and stack[len(stack)-1] == 'A'):
         i += 1
         continue
     elif (html[i] in alphabet):
@@ -62,7 +98,7 @@ while (i < len(html) - 1 and reject == False):
         reject = True
     passed = False
     j = 0
-    print(f"temp nya {temp}")
+#    print(f"temp nya {temp}")
     temp = str()
     if (not(alpha)):
         i += 1
@@ -72,8 +108,15 @@ while (i < len(html) - 1 and reject == False):
 if (reject == False and len(stack) == 1 and stack[0] == 'Z'):
     print("accept")
 else:
-    print(html[i:])
-    print(f"html nya pas {i} adalah {html[i]}")
-    print(f"stack nya {stack}")
-    print(f"state nya {state}")
-    print(f"reject di i {i}")
+    while (html[i] != '\n'):
+        i += 1
+    lidx = i
+
+    print("reject")
+    print(f"line yang salah adalah line ke {line}")
+    print(html[bidx+1:lidx])
+#    print("debug")
+#    print(html[i:])
+#    print(f"html nya pas {i} adalah {html[i]}")
+#    print(f"stack nya {stack}")
+#    print(f"state nya {state}")
