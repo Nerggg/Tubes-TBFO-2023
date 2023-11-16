@@ -40,6 +40,9 @@ D script head X >,script,<,head
 E < B E <,B
 E body < E body,<
 E > body F S,body
+E id body AZ A,body
+E class body AZ A,body
+E style body AZ A,body
 F < S F <,S
 F div < F >,div,<
 F h1 < F >,h1,<
@@ -109,6 +112,7 @@ G strong > F >,strong,<,G,>
 G small > F >,small,<,G,>
 G a > Y >,a,<,G,>
 G img > Z img,<,G,>
+G link > V link,<,G,>
 G button > AB >,button,<,G,>
 G form > AG >,form,<,G,>
 G input > AL input,<,G,>
@@ -132,6 +136,9 @@ L = href M e
 L = id M e
 L = class M e
 L = style M e
+L id link BB A,link
+L class link BB A,link
+L style link BB A,link
 M " link M A
 M any-" A M A
 M " A M e
@@ -170,6 +177,9 @@ V = href W e
 V = id W e
 V = class W e
 V = style W e
+V id link BD A,link
+V class link BD A,link
+V style link BD A,link
 W " link W A
 W any-" A W A
 W " A W e
@@ -190,6 +200,9 @@ Z = alt AA e
 Z = id AA e
 Z = class AA e
 Z = style AA e
+Z id img BF A,img
+Z class img BF A,img
+Z style img BF A,img
 AA " img AA A
 AA any-" A AA A
 AA " A AA e
@@ -312,3 +325,19 @@ AY id > I A,>
 AY class > I A,>
 AY style > I A,>
 AY > > F G,>
+AZ = A AZ =,A
+AZ " = BA e
+BA any-" A BA A
+BA " A E e
+BB = A BC e
+BC " link BC A,link
+BC any-" A BC A
+BC " A L e
+BD = A BE e
+BE " link BE A,link
+BE any-" A BE A
+BE " A V e
+BF = A BG e
+BG " img BG A,img
+BG any-" A BG A
+BG " A Z e
