@@ -53,6 +53,7 @@ Considering many types of tags and attributes available in HTML, the scope of pr
 |tr| | |The tr tag must be in the tag table|
 |td| | |The td tag must be in the tag table|
 |th| | |The th tag must be in the tag table|
+|---|---|---|---|
 This program also has an additional feature, namely telling you where the error in the HTML code entered is. The program can also explain what expressions are wrong in the program, such as inappropriate use of tags or attributes. The program can also detect errors involving the HTML program code structure.
 
 ## Structure
