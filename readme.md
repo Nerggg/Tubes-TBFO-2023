@@ -10,7 +10,6 @@
   - [How to Use](#how-to-use)
     - [Dependencies](#dependencies)
     - [Installation](#installation)
-    - [Program Execution](#program-execution)
 
 ## General Information
 HTML (Hypertext Markup Language) serves as a markup language utilized in shaping the structure and visual presentation of web content. Through elements (tags), HTML organizes and groups content. Similar to most languages, HTML maintains its own syntax for writing, the violation of which can lead to errors. An error detection program for HTML is essential to verify the accuracy of tag usage and its associated attributes.
@@ -33,17 +32,44 @@ HTML (Hypertext Markup Language) serves as a markup language utilized in shaping
 - Ntar tulis fitur di sini
 
 ## Structure
-
-
+├── readme.md
+│ 
+├── doc
+│   └── .pdf
+│       
+├── pda
+│   ├── pda.drawio
+│   └── pda.png
+│ 
+└── src
+    ├── main.py
+    │ 
+    ├── functions
+    │   ├── load.py
+    │   └── readpda.py
+    │
+    ├── html
+    │   ├── input.html
+    │   ├── inputAcc.html
+    │   ├── inputReject.html
+    │   └── testing.html
+    │
+    └── pda
+        ├── pda txt guide.md
+        ├── pda.drawio
+        ├── pda.png
+        └── pda.txt
 ---
 
 ## How to Use
-- Cara make ntar di sini
+    git clone https://github.com/Nerggg/Tubes-TBFO-2023
+    cd Tubes-TBFO-2023/src
+    python main.py pda.txt <test-case-name>.txt
 
 ### Dependencies
-- C/C++ Compiler
+- Python Interpreter
 
 ### Installation
-- Tutor dulu cara install python
+- Download and install [Python](https://www.python.org/downloads/)
 - Download all folder and files on this repository or simply clone this repo!
 
