@@ -63,7 +63,7 @@ HTML (Hypertext Markup Language) serves as a markup language utilized in shaping
 ## How to Use
     git clone https://github.com/Nerggg/Tubes-TBFO-2023
     cd Tubes-TBFO-2023/src
-    python main.py pda.txt <test-case-name>.txt
+    python main.py pda.txt <test-case-name>.html
 
 ### Dependencies
 - Python Interpreter
