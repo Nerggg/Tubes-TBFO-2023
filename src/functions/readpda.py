@@ -16,6 +16,7 @@ def readpda(pdatxt):
     moveStateTemp = str()
     pushTemp = []
     pda = []
+    inputSymbol = []
 
     i = int(0)
 
@@ -23,7 +24,14 @@ def readpda(pdatxt):
         i += 1
     i += 1
     while (pdatxt[i] != '\n'): # skip baris kedua
+        temp += pdatxt[i]
         i += 1
+        if (pdatxt[i] == ' '):
+            inputSymbol.append(temp)
+            temp = str()
+            i += 1
+    inputSymbol.append(temp)
+    temp = str()
     i += 1
     while (pdatxt[i] != '\n'):
         temp += pdatxt[i]
@@ -83,4 +91,4 @@ def readpda(pdatxt):
         moveStateTemp = str()
         pushTemp = []
 
-    return (startState, startStack, pda)
+    return (inputSymbol, startState, startStack, pda)
