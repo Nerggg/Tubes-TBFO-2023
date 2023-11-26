@@ -1,5 +1,5 @@
 # Tugas Besar Teori Bahasa Formal dan Automata (TBFO)
-## HTML Checker dengan Pushdown Automata (PDA)
+## HTML Checker with Pushdown Automata (PDA)
 ## Table of Contents
   - [Table of Contents](#table-of-contents)
   - [General Information](#general-information)
@@ -21,9 +21,6 @@ HTML (Hypertext Markup Language) serves as a markup language utilized in shaping
 | Aland Mulia Pratama | 13522124 |
 | Rizqika Mulia Pratama | 13522126 |
 | Ikhwan Al Hakim | 13522147 |
-
-### Project Assistant
-- 13520022 Primanda Adyatma Hafiz
 
 ## Technologies Used
 - Python3
