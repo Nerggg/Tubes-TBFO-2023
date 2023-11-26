@@ -292,6 +292,7 @@ Y href > I A,>
 Y id > I A,>
 Y class > I A,>
 Y style > I A,>
+Y > > G G,>
 Z src img Z src,img
 Z = src AA e
 Z = alt AA e
