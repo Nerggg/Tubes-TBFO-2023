@@ -32,6 +32,7 @@ HTML (Hypertext Markup Language) serves as a markup language utilized in shaping
 - Ntar tulis fitur di sini
 
 ## Structure
+```
 ├── readme.md
 │ 
 ├── doc
@@ -59,6 +60,7 @@ HTML (Hypertext Markup Language) serves as a markup language utilized in shaping
         ├── pda.drawio
         ├── pda.png
         └── pda.txt
+```
 ---
 
 ## How to Use
